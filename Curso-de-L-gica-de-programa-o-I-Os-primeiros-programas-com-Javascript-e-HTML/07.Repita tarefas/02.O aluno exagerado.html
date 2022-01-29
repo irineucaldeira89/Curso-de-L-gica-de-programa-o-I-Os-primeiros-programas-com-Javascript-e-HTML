@@ -1,0 +1,130 @@
+Daniel sempre foi muito exagerado. Em sua versão particular do jogo da adivinhação, quando o usuário erra o chute, são exibidos na tela dez avisos de que ele errou.
+
+Segue o código de Daniel:
+
+<meta charset="UTF-8">
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia() {
+
+        return Math.round(Math.random() * 100);
+    }   
+
+    var numeroPensado = sorteia();
+
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if(chute == numeroPensado) {
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    } else {
+
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+        mostra("Você errou!");
+    }
+</script>
+
+Além de exagerado, Daniel também é perfeccionista e nunca está satisfeito com a mensagem exibida para o usuário. Vira e mexe ele altera o conteúdo da mensagem para outro texto. Por exemplo:
+
+<meta charset="UTF-8">
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia() {
+
+        return Math.round(Math.random() * 100);
+    }   
+
+    var numeroPensado = sorteia();
+
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if(chute == numeroPensado) {
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    } else {
+
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+        mostra("Já era, você errou!");
+    }
+</script>
+
+Repare que as dez instruções mostra são iguais.
+
+Ajude Daniel marcando a opção que contem outra maneira de exibir o mostra("Já era, você errou!")10 vezes! Dessa maneira, ele precisará alterar o texto em apenas um lugar.
+
+Selecione uma alternativa:
+
+***	Resposta Correta:
+
+B:
+
+<meta charset="UTF-8">
+<script>
+
+    // funções pulaLinha, mostra e sorteia omitidas
+
+    var numeroPensado = sorteia();
+
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if(chute == numeroPensado) {
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    } else {
+
+        var contador = 1;
+
+        while( contador <= 10 ) {
+
+            mostra("Já era, você errou!");
+            contador = contador + 1;
+        }
+
+    }
+</script>
+
+Lembre-se que while repetirá TODAS as instruções que estiverem dentro do seu bloco e a condição passada para ele for true. Veja que while recebe em seus parênteses () a expressão contador <= 10.
+
+Aprendemos que expressões como essa retornam true ou false. Sendo assim, quando no navegador interpretar a linha do while perguntará: o valor da variável contador é menor que ou igual a 10? Como a variável contador recebeu o valor 1 em sua inicialização o resultado da expressão contador <= 10 será true. Sendo assim, o while terá autorização para executar a instrução dentro do seu bloco, no caso, a instrução mostra("Você errou"); e a instrução contador = contador + 1.
+
+Faz sentido ele executar mostra("Já era, você errou!");, claro, mas você lembra a razão de fazermos contador = contador + 1? Veja que essa variável só existe por causa de uma finalidade: é ela que quebrará o lanço de repetição do while. A cada repetição do mostra, precisamos incrementá-la para saber que já mostramos, uma, duas, três vezes e por ai vai. Se não tivermos a instrução contador = contador + 1 nunca a condição passada para o while dará false e cairemos em uma repetição infinita, o famoso loop infinito.
+
+
