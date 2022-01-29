@@ -1,0 +1,94 @@
+Gilberto aprendeu que funções podem tornar seu programa mais fácil de manter. Veja o programa que ele criou:
+
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    var titulo = "Bem-vindo ao meu programa!";
+
+    document.write("<h1>" + titulo + "</h1>");
+
+    pulaLinha();
+
+    document.write("Vocês não sabem o que tive que aprender para fazer isso!");
+
+    pulaLinha();
+
+    document.write("Contudo, assistindo os vídeos e estudando ...");
+
+    pulaLinha();
+
+    document.write("Eu vou mais longe!");
+
+    pulaLinha();
+</script>
+
+Contudo, Gilberto perdeu um aspecto importante sobre o uso de funções. Digo isso, porque quando ele achou melhor pular duas linhas em todos os lugares do seu programa ele fez a seguinte alteração:
+
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    var titulo = "Bem-vindo ao meu programa!";
+
+    document.write("<h1>" + titulo + "</h1>");
+
+    pulaLinha();
+    pulaLinha();
+
+    document.write("Vocês não sabem o que tive que aprender para fazer isso!");
+
+    pulaLinha();
+    pulaLinha();
+
+    document.write("Contudo, assistindo os vídeos e estudando ...");
+
+    pulaLinha();
+    pulaLinha();
+
+    document.write("Eu vou mais longe!");
+
+    pulaLinha();
+    pulaLinha();
+</script>
+
+É um código totalmente funcional, resolve o problema. O que precisaríamos alterar no código de Gilberto para conseguir o mesmo resultado, mas sem ter que chamar mais uma vez o pulaLinha? Veja que isso acarretou em quatro novas instruções em nosso programa!
+
+Opinião do instrutor:
+
+A solução é alterar a função pulaLinha para que ela pule duas linhas, ao invés de uma. Veja que só mexemos em um lugar e o restante do nosso código continua intacto:
+
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+
+        document.write("<br><br>");
+    }
+
+    var titulo = "Bem-vindo ao meu programa!";
+
+    document.write("<h1>" + titulo + "</h1>");
+
+    pulaLinha();
+
+    document.write("Vocês não sabem o que tive que aprender para fazer isso!");
+
+    pulaLinha();
+
+    document.write("Contudo, assistindo os vídeos e estudando ...");
+
+    pulaLinha();
+
+    document.write("Eu vou mais longe!");
+
+    pulaLinha();
+</script>
+
+Nada também o impede de chamar duas vezes document.write("<br>") dentro da função pulaLinha.
+
