@@ -1,0 +1,151 @@
+Transcrição do Video:
+
+Começando deste ponto? Você pode fazer o DOWNLOAD do projeto do capítulo anterior e continuar seus estudos a partir daqui.
+
+Vamos continuar elaborando o programa. Antes, vamos remover a parte do código que não será mais necessária. O arquivo programa.html ficou com o seguinte conteúdo:
+
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+    document.write("<br>");
+
+</script>
+
+Quando utilizamos o document.write() para inserir a tag <br>, isso representa uma quebra de linha. No código acima, quantas linhas estamos pulando de uma frase até a outra? A resposta é: uma. Escrevemos uma frase e, na sequência, saltamos uma linha:
+
+Veja no seu navegador !
+
+Agora, nosso chefe fez um novo pedido, ele quer que existam duas linhas de intervalo entre cada frase, pois acredita que assim as linhas ficarão mais espaçadas. Como podemos solucionar o problema? Uma opção seria adicionar mais uma linha de código com <br>:
+
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+    document.write("<br>");
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+
+</script>
+
+Note que na última instrução document.write() não é necessário pular uma linha, porque ela está no final. A apresentação ficará da seguinte maneira:
+
+Veja no seu navegador !
+
+Se o chefe pedir mais linhas, basta ir adicionando mais instruções com document.write():
+
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+
+</script>
+
+E se o chefe muda de ideia toda hora? Em algum momento ele pode querer voltar atrás, isto é, que o programa pule apenas uma linha:
+
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+
+</script>
+
+Uma solução que resolve a situação de maneira simples é adicionar a quantidade de linhas que queremos pular em uma mesma instrução. Desta forma, acrescentaremos um número de <br> equivalente à quantidade de linhas que desejamos saltar:
+
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br><br><br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br><br><br>");
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+
+</script>
+
+Porém, quando o chefe pedir novas alterações quanto ao intervalo de linhas, teremos que fazer essa alteração em todos os lugares nos quais isto ocorre! Isto vai dificultando cada vez mais a manutenção do código. Se tivermos trinta pulos de linha, algo comum em um programa, será necessário fazer alterações em n lugares diferentes.
+
+Já vimos que as variáveis podem nos blindar desse tipo de situação. Abaixo da variável ano, criaremos a variável puloLinha, a que adicionaremos o "<br>":
+
+var puloLinha = "<br>";
+
+No lugar de passarmos o "<br>" para o document.write(), poderemos passar direto a seguinte variável:
+
+document.write(puloLinha);
+
+Na hora em que o document.write() for ser acessado, ele irá pegar o conteúdo da variável, a tag <br>, como mostra o código abaixo:
+
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = 2016;
+    var puloLinha = "<br>";
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write(puloLinha);
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write(puloLinha);
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+
+</script>
+
+É o mesmo procedimento de quando pulamos apenas uma linha:
+
+Veja no seu navegador !
+
+A partir de agora, caso seu chefe tenha interesse em pular linhas, o código pode ser ajustado em um único lugar. Imagine que ele tenha exigido que o intervalo seja de duas linhas. Para resolver esse problema faremos a seguinte modificação:
+
+var puloLinha = "<br><br>";
+
+E automaticamente isso muda a quantidade de linhas vazias em todo o código:
+
+Veja no seu navegador !
+
+Com isso, aprendemos que o uso de uma variável nos permite facilitar a manutenção do código!
