@@ -1,0 +1,40 @@
+Lembra-se de Robson do exercício anterior? Pois bem, depois de corrigir seu problema ele viu que não era suficiente escrevê-lo da seguinte forma:
+<meta charset="UTF-8">
+<script>
+    document.write( (200 + 100 + 300 + 400) / 4);
+</script>
+
+Apesar de funcional, é exibido na tela apenas o resultado da operação. Quem olha o resultado não sabe a procedência daquele número. Para ficar mais claro, Robson deseja exibir uma mensagem antes do resultado. Dessa maneira, ele fez:
+<meta charset="UTF-8">
+<script>
+    document.write("A média do valor gasto com as viagens é") ;
+    document.write( (200 + 100 + 300 + 400) / 4);
+</script>
+
+Qual das opções abaixo mostra a saída do programa quando ele é processado pelo navegador?
+***Resposta Correta:
+	A média do valor gasto com as viagens é250
+
+	Quando usamos document.write para escrever no mundo HTML, ele não vai pular linha por padrão. Para isso, precisamos escrever no mundo HTML um <br>. Por exemplo:
+	<meta charset="UTF-8">
+	<script>
+    document.write("A média do valor gasto com as viagens é<br>") ;
+    document.write( (200 + 100 + 300 + 400) / 4);
+	</script>
+
+	Ou o <br> em outra instrução:
+	<meta charset="UTF-8">
+	<script>
+    document.write("A média do valor gasto com as viagens é") ;
+    document.write("<br>");
+    document.write( (200 + 100 + 300 + 400) / 4);
+	</script>
+
+	Mas por que a resposta correta não é "A média do valor gasto com as viagens é 250" ? Veja que para o resultado da soma fique separado do texto, precisamos dar um espaço dentro do texto entre aspas, depois de "é ":
+	<meta charset="UTF-8">
+ 	<script>
+    document.write("A média do valor gasto com as viagens é ") ;
+    document.write( (200 + 100 + 300 + 400) / 4);
+	</script>
+
+	São pequenos detalhes como esse que fazem a diferença!
