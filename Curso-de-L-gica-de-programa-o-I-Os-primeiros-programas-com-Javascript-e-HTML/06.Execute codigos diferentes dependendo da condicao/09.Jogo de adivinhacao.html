@@ -1,0 +1,164 @@
+Transcrição do Video:
+
+Já aprendemos a criar um programa útil para nos ajudar a calcular o IMC e descobrir se alguém está ou não saudável. Criaremos agora o nosso primeiro jogo, que será de adivinhação. Clicaremos em "File > Save As..." e salvaremos como jogo_advinha.html. Manteremos as funções pulaLinha() e mostra() do nosso programa:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+</script>
+
+Teremos em nosso programa uma variável chamada numeroPensado, que recebe o valor 5:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+var numeroPensado = 5;
+
+</script>
+
+Nosso objetivo é criar um jogo em que o usuário adivinhe qual é o número pensado. O indivíduo se depara com a página, contendo um alerta perguntando qual é o chute, o usuário inserirá um número entre 1 e 10, e se este número for igual ao numeroPensado, teremos um acerto.
+
+Portanto, teremos uma variável chute, que lerá a informação digitada no teclado:
+
+var numeroPensado = 5;
+var chute = parseInt(prompt("digite seu chute!"));
+
+Lembrando que sempre que queremos interpretar uma entrada como um número, devemos utilizar o parseInt(). O programa lerá o número digitado como uma string, o qual será convertido para um número e será guardado em chute. Agora, testaremos a possibilidade de chute ser igual a numeroPensado:
+
+var numeroPensado = 5;
+var chute = parseInt(prompt("digite seu chute!"));
+
+if(chute == numeroPensado) {
+    mostra("Você acertou!");
+}
+
+Em seguida, veremos o que acontece quando chute não é igual ao número pensado:
+
+if(chute !=  numeroPensado) {
+    mostra("Você errou, o número pensado foi " + numeroPensado);
+}
+
+Se acertarmos, surgirá uma mensagem indicando isso. Se errarmos, ele indicará o erro e ainda exibirá qual era o número pensado. Salvaremos o programa, retornaremos ao navegador e abriremos o arquivo jogo_advinha.html, indo a "Arquivo > Abrir arquivo... > jogo_advinha.html". Surgirá um pop up para digitarmos um chute, e inseriremos o número 2, para testarmos, pressionando "Ok" em seguida. É exibida a seguinte mensagem:
+
+Você errou, o número pensado foi 5
+
+Recarregaremos a página e digitaremos o número 5. Veremos:
+
+Você acertou!
+
+Podemos melhorar nosso código... No caso, estamos fazendo um teste, e desejamos executar algo sempre que o resultado for verdadeiro, e também quando for falso. Isto é, temos o chute e, para ele, descritas duas situações, uma para quando erramos e outra para quando acertamos. Sendo assim, em vez de utilizarmos a função if(), podemos implementar o else, que equivale a "se não" (ou "caso contrário"). Se for o número pensado temos uma situação, e se não, temos outra:
+
+if(chute == numeroPensado) {
+    mostra("Você acertou!");
+
+} else {
+    mostra("Você errou, o número pensado foi " + numeroPensado);
+}
+
+Com o else não foi preciso repetir em um novo if() a condição contrária. Ele entende que, se a condição do if() não for verdadeira, só pode existir a outra condição.
+
+Salvaremos, recarregaremos a página, digitaremos o número 5, e teremos a seguinte mensagem:
+
+Você acertou!
+
+Recarregaremos a página. Digitaremos o número 3, e a mensagem é a seguinte:
+
+Você errou, o número pensado foi 5
+
+Funcionou! O programa, entretanto, pode ser melhorado. Da forma como está, quando o usuário erra uma primeira vez, já é informada a resposta correta. Se quisermos que várias pessoas joguem, teríamos que recarregar a página todas as vezes, além de alterarmos, no código, o numeroPensado.
+
+E se o programa gerasse o numeroPensado aleatoriamente, a cada vez que fosse feita uma tentativa? Aprenderemos a fazer justamente isso. Abriremos o console no navegador e selecionaremos "Visualizar > Desenvolvedor > Console JavaScript".
+
+Há a função Math.random(), que gera um número aleatório. Pressionando a tecla "Enter", ele gerou um número entre 0 e 1, e todas as vezes em que pressionarmos "Enter" surgirá um novo número. Entretanto, queremos que seja gerado um número entre 0 e 10.
+
+Queremos andar uma casa decimal para direita, e para isso multiplicaremos o número gerado por 10, da seguinte forma:
+
+Math.random() * 10
+
+Ao pressionarmos "Enter", é movida uma casa decimal para a direita. Por exemplo, onde anteriormente tínhamos um número 0.21, agora temos 2.1. Podemos apertar "Enter" n vezes, e em todas elas surgirá um número diferente, com uma estrutura similar a esta:
+
+Math.random() * 10
+2.1240615385242934
+
+O primeiro número antes da vírgula sempre estará entre 0 e 9. Como queremos que o resultado esteja entre 0 e 10, utilizaremos a função Math.round() para arredondarmos o resultado de Math.random():
+
+Math.round(Math.random() * 10);
+
+Ao pressionarmos "Enter", teremos sempre um novo número aleatório entre 0 e 10:
+
+Math.round(Math.random() * 10);
+1
+Math.round(Math.random() * 10);
+6
+Math.round(Math.random() * 10);
+7
+Math.round(Math.random() * 10);
+10
+
+Retornaremos ao editor de texto para alterarmos nosso código, diretamente na variável numeroPensado, localizada logo abaixo da função mostra():
+
+var numeroPensado = Math.random() * 10;
+
+Mas e se quiséssemos um número de 0 a 1000? Basta trocarmos 10 por 1000 no código acima. Agora, falta fazermos com que o número seja arredondado, utilizando-se a função Math.round():
+
+var numeroPensado = Math.round(Math.random() * 10);
+
+Salvaremos e recarregaremos a página. Surgirá um pop up solicitando um chute, digitaremos o número 3 e receberemos o seguinte retorno:
+
+Você errou, o número pensado foi 5
+
+Podemos testar várias vezes até acertarmos. Nesta hipótese, o navegador exibirá a mensagem: Você acertou!. Em seguida criaremos um teste para descobrirmos se o usuário errou ou acertou, utilizando o console.log():
+
+var numeroPensado = Math.round(Math.random() * 10);
+console.log(numeroPensado);
+
+Com isso, o numeroPensado será exibido no console do navegador, em que poderemos visualizar antes mesmo de inserirmos nosso palpite:
+
+Veja no seu navegador !
+
+Isso nos ajudará a testar ambas condições, de acerto e erro. Para nos certificarmos disso, vamos testar com um número maior, que multiplicaremos por 100:
+
+var numeroPensado = Math.round(Math.random() * 100);
+
+Retornaremos ao navegador e recarregaremos a página. Digitaremos um palpite de 34, após o qual receberemos a mensagem:
+
+Você errou, o número pensado foi 73
+
+Seria muito difícil acertarmos, a menos que tivéssemos mais chances de testarmos. Assim, finalizamos nosso primeiro jogo.
+
+
+
+
+
+
+
+
+
+
+
