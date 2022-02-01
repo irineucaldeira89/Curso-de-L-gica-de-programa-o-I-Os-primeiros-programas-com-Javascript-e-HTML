@@ -1,0 +1,199 @@
+Transcrição do Video:
+
+Nesta aula aprenderemos a interagir com usuários. Temos nosso programa do IMC:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+    function calculaImc(altura, peso) {
+
+        return peso / (altura * altura);
+}
+
+</script>
+
+Temos as funções pulaLinha(), mostra() e calculaImc(), e criaremos em seguida duas variáveis, alturaInformada e pesoInformado:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+    function calculaImc(altura, peso) {
+
+        return peso / (altura * altura);
+}
+
+var alturaInformada = 1.71;
+var pesoInformado = 73;
+
+</script>
+
+Para calcular o IMC, abaixo das variáveis que acabamos de criar, teremos a var imc, que receberá o calculaImc() com os parâmetros alturaInformada e pesoInformado:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+    function calculaImc(altura, peso) {
+
+        return peso / (altura * altura);
+}
+
+var alturaInformada = 1.71;
+var pesoInformado = 73;
+
+var imc = calculaImc(alturaInformada, pesoInformado)
+
+</script>
+
+E, para exibir, incluiremos uma instrução document.write() abaixo da variável imc:
+
+var alturaInformada = 1.71;
+var pesoInformado = 73;
+
+var imc = calculaImc(alturaInformada, pesoInformado)
+
+document.write("O IMC calculado é " + imc);
+
+</script>
+
+Salvaremos o programa, retornaremos ao navegador e recarregaremos a página. Obteremos o resultado desejado:
+
+O IMC calculado é 24.96494647925858
+
+Até então não foi apresentado nenhum conceito novo.
+
+Veremos agora como podemos calcular o IMC de um novo indivíduo, como uma visita, por exemplo. Para isso, esta pessoa teria de inserir suas informações diretamente no programa. Quanto mais pessoas quiserem saber seu IMC, maior o número de alterações pelas quais o programa terá de passar.
+
+Faremos com que o programa seja genérico, ou seja, quando o usuário recarregar a página, será solicitado que informe sua altura e peso. Determinamos que as variáveis alturaInformada e pesoInformado receberão as informações do usuário, mas ainda não definimos como isso será perguntado.
+
+Abriremos o console do Google Chrome e selecionaremos na barra de menu superior as opções "Visualizar > Desenvolvedor > Console JavaScript". Nele, digitaremos:
+
+prompt()
+
+Trata-se de uma função do JavaScript, que receberá como parâmetro a pergunta que desejamos fazer ao usuário, no caso, "Informe sua altura":
+
+prompt("Informe sua altura");
+
+Pressionaremos a tecla "Enter", e surgirá um pop up com a frase "Informe sua altura" e um espaço em branco abaixo para que o usuário possa incluir suas informações. Digitaremos "1.71" e pressionaremos "Ok".
+
+Veremos que foi impresso no console a informação que acabamos de inserir:
+
+prompt("Informe sua altura");
+"1.71"
+
+prompt("Informe sua altura");
+"1.71"
+var altura = prompt("Informe sua altura");
+
+Para confirmar, basta digitarmos altura e pressionarmos "Enter". Como foi impresso o número 1.71, sabemos que deu certo:
+
+prompt("Informe sua altura");
+"1.71"
+var altura = prompt("Informe sua altura)";
+altura
+"1.71"
+
+Do mesmo modo, se digitarmos alert(altura) e pressionarmos "Enter", surgirá um pop up com o número 1.71. Fecharemos o console e retornaremos ao editor de texto. No local em que há o número 1.71, colocaremos a função prompt():
+
+var alturaInformada = prompt("Informe sua altura");
+
+Para o peso, inseriremos prompt("Informe seu peso"):
+
+var alturaInformada = prompt("Informe sua altura");
+var pesoInformado = prompt("Informe seu peso");
+
+A informação só será considerada quando o usuário pressionar a tecla "Ok". Salvaremos o programa, retornaremos ao navegador e recarregaremos a página. Se simplesmente pressionarmos "Ok" sem inserir nenhum dado, teremos como resultado "O IMC calculado é NaN".
+
+Recarregaremos a página. Informaremos a altura, 1.71, e o peso, 73. Assim, o resultado exibido na tela é:
+
+O IMC calculado é 24.96494647925858
+
+Para que as informações de um novo usuário sejam inseridas, basta recarregarmos a página. Como o programa será executado novamente, todas as instruções serão processadas. Inseriremos novos dados, 1.62 de altura, e 55 de peso. Isto resultará em:
+
+O IMC calculado é 20.957171162932475
+
+Nosso programa é mais útil, porque consegue interagir com o usuário. É interessante personalizarmos ele ainda mais, criando a variável nome:
+
+var nome = prompt("Informe o seu nome");
+var alturaInformada = prompt("Informe sua altura");
+var pesoInformado = prompt("Informe seu peso");
+
+A variável nome guardará o nome que foi digitado no prompt(). Ele será concatenado nas próximas mensagens, para que fiquem mais pessoais:
+
+var nome = prompt("Informe o seu nome");
+var alturaInformada = prompt(nome + ", informe sua altura");
+var pesoInformado = prompt(nome + ", informe seu peso");
+
+var imc = calculaImc(alturaInformada, pesoInformado);
+
+document.write(nome + ", o seu IMC calculado é " + imc);
+
+Lemos em uma variável o nome de quem está utilizando o programa e, ao fazermos a próxima pergunta, concatenamos seu nome com a pergunta. Salvaremos e recarregaremos a página, e isto fará com que o primeiro pop up apareça, solicitando o nome do usuário. Digitaremos "Flávio" e pressionaremos "Enter".
+
+Em seguida surge um novo pop up, com a mensagem:
+
+Flávio, informe sua altura
+
+Digitaremos 1.71 e pressionaremos "Ok". Surgirá então um novo pop up:
+
+Flávio, informe seu peso
+
+Digitaremos 73 e pressionaremos "Ok". Como resultado final, teremos:
+
+Flávio, o seu IMC calculado é 24.96494647925858
+
+Alteraremos a mensagem para que diga apenas "O seu IMC é":
+
+var nome = prompt("Informe o seu nome");
+var alturaInformada = prompt(nome + ", informe sua altura");
+var pesoInformado = prompt(nome + ", informe seu peso");
+
+var imc = calculaImc(alturaInformada, pesoInformado);
+
+document.write(nome + ", o seu IMC é " + imc);
+
+Salvaremos e recarregaremos a página. Inseriremos novas informações, como o nome "Calopsita", altura "1,79" e peso "90", e teremos o seguinte resultado:
+
+Calopsita, o seu IMC é 28.089010954714272
+
+Temos um programa genérico que cada pessoa que o utilizar pode recarregar para informar seus dados pessoais!
+
+

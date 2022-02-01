@@ -1,0 +1,58 @@
+Transcrição do Video:
+
+Nesta aula aprenderemos outra forma de calcularmos mais de um IMC por vez. Ao chamarmos a função calculaImc() com a altura e peso de Flávio, 1.71 e 73, foi calculado o IMC e retornada a variável imc. Para simplificar, podemos simplesmente indicar que o return será o cálculo em si:
+
+function calculaImc(altura, peso) {
+
+    return peso / (altura * altura);
+}
+
+var imcFlavio = calculaImc(1.71, 73);
+var imcAmigo = calculaImc(1.72, 68);
+
+mostra(imcFlavio);
+mostra(imcAmigo);
+
+Salvaremos e recarregaremos a página, e teremos o mesmo resultado:
+
+24.96494647925858
+
+22.985397512168742
+
+Isso porque quando chamamos o calculaImc(), a única instrução que temos dentro dele é o return. Quando este for devolver o resultado da função, avaliará a expressão peso / (altura * altura), e imprimirá o que dela resultar.
+
+Entendemos o calculaImc() como um moedor de carne, em que entram as informações de peso e altura, e sai o resultado da função. Entram dois parâmetros, mas é emitido apenas um resultado.
+
+Como o JavaScript processa isso?
+
+Ao receber a seguinte linha:
+
+var imcFlavio = calculaImc(1.71, 73);
+
+Ele entenderá que a variável imcFlavio recebe calculaImc(1.71, 73), e aguardará isso ser processado, retornando o resultado do cálculo. Poderemos escolher a mensagem que queremos exibir para o IMC:
+
+function calculaImc(altura, peso) {
+
+    return peso / (altura * altura);
+}
+
+var imcFlavio = calculaImc(1.71, 73);
+var imcAmigo = calculaImc(1.72, 68);
+var totalImc = imcFlavio + imcAmigo;
+
+document.write("A soma dos imc's é " + totalImc);
+
+Salvaremos, e recarregaremos a página no navegador, o que resultará em:
+
+A soma dos imc's é 47.95034399142732
+
+Quem for utilizar a função escolherá se prefere exibi-lo na tela, receber via e-mail, ou gravar em um banco de dados. O que não podemos fazer é fixá-lo na função calculaImc(), a saída.
+
+E se colocarmos um mostra() dentro do calculaImc(), e quisermos enviar um SMS ou um e-mail? Sua exibição na tela será sempre fixa. Quem chama a função, e pega seu valor, decidirá sobre como deseja dispor destes dados. Podemos também obter o mesmo resultado da seguinte forma:
+
+var totalImc = calculaImc(1.71, 73) + calculaImc(1.72, 68);
+
+Assim, estamos declarando que o valor total do IMC recebe o retorno de calculaImc(1.71, 73), somado ao retorno de calculaImc(1.72, 68). Ao se deparar com essa operação, o JavaScript tomará o resultado de cada operação separadamente, primeiro um IMC e depois o outro, para então somá-los.
+
+Utilizar um método ou outro é uma escolha do programador. Com isso, temos um programa que abre possibilidades para criarmos outros ainda mais sofisticados.
+

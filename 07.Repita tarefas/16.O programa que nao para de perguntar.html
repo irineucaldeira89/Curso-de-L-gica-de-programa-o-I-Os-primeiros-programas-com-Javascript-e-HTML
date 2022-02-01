@@ -1,0 +1,59 @@
+Observe o código abaixo:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var resposta = ""; // ainda não tem a resposta
+
+    while(true) {
+
+        resposta = prompt("Qual é seu nome?");
+    }
+
+    mostra("FIM");
+
+</script>
+
+Veja que o while() recebe o valor fixo true. Enquanto o valor que estiver entre seus parênteses for true ele repetirá a instrução dentro do bloco {}.
+
+Qual das opções abaixo possui uma nova versão do código o while() caso a resposta do usuário seja "SAIR"?
+
+*** Resposta Correta:
+
+C:
+
+<meta charset="UTF-8">
+
+<script>
+
+    // função pulaLinha e mostra omitidas
+
+    var resposta = ""; // ainda não tem a resposta
+
+    while(true) {
+
+        resposta = prompt("Qual é seu nome?");
+
+        if( resposta == "SAIR") {
+
+            break;
+        }
+    }
+
+    mostra("FIM");
+
+</script>
+
+Enquanto a resposta não for SAIR será perguntado qual o seu nome.
+

@@ -1,0 +1,208 @@
+Transcrição do Video:
+
+Na aula anterior utilizamos como exemplo dois times de futebol, com o objetivo de aprender a dotar o programa de certa inteligência para fornecer uma resposta aos usuários.
+
+Nesta aula vamos retornar ao programa do IMC. Lembrando que a OMS determina que indivíduos com IMC menor que 18.5 estão abaixo da média, com 25 estão acima da média, e entre 18.5 e 25 estão na média aceitável.
+
+Abriremos o nosso editor de texto, e na barra de menu superior acessaremos "File > Open... > imc.html". Faremos o mesmo processo no navegador, selecionando "Arquivo > Abrir arquivo... > imc.html". Nossos alertas pedirão certas informações, neste momento digitaremos qualquer dado, já que queremos somente abrir o programa.
+
+Em nosso editor de texto, temos nosso programa:
+
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+    function calculaImc(altura, peso) {
+
+        return peso / (altura * altura);
+}
+
+var nome = prompt("Informe o seu nome");
+var alturaInformada = prompt(nome + ", informe sua altura");
+var pesoInformado = prompt(nome + ", informe seu peso");
+
+var imc = calculaImc(alturaInformada, pesoInformado);
+
+document.write(nome + ", o seu IMC é " + imc);
+
+</script>
+
+Até o momento, a Organização Mundial da Saúde definiu os seguintes parâmetros para o IMC:
+
+IMC		Avaliação
+< 18.5	Baixo
+35 >	Alto
+Entre 18.5 e 35	Média
+
+Ou seja, se o indivíduo possui o IMC igual a 20, está bem, se for 34, também, entretanto, com o IMC 17 ou 36, a pessoa já não é saudável. Como temos um programa personalizado, perguntamos uma série de informações. Em nome do usuário, escreveremos Flávio, altura será 1.71, e peso, 73. Isto resultará em:
+
+Flávio, o seu IMC é 24.96494647925858
+
+O próximo passo será inserirmos frases que indiquem ao usuário como o resultado do seu IMC é classificado pela Organização Mundial da Saúde. Utilizaremos a condição if(), que recebe algo, e terá um bloco a ser executado conforme o resultado passado seja verdadeiro ou falso.
+
+Nossa primeira pergunta será se o IMC for menor que 18.5, e então teremos no bloco um mostra() que exibirá a mensagem Você está abaixo do recomendado. No código, isso ficará localizado logo abaixo da mensagem nome + ", o sei IMC é " + imc.
+
+if(imc < 18.5) {
+
+    mostra("Você está abaixo do recomendado")
+
+}
+
+Em seguida, criaremos uma situação para quando o IMC for maior que 35:
+
+if(imc < 18.5) {
+
+    mostra("Você está abaixo do recomendado");
+
+}
+
+if(imc > 35) {
+
+    mostra("Você está acima do recomendado");
+}
+
+Salvaremos e programa, retornaremos ao navegador e recarregaremos a página. Inseriremos novamente os dados de altura e peso, 1.71 e 73, respectivamente, com que obteremos o mesmo resultado de antes:
+
+Flávio, o seu IMC é 24.96494647925858
+
+Não foi exibida nenhuma mensagem além desta, porque o resultado foi de aproximadamente 24, e este número não é menor que 18.5 nem maior que 35. Precisaremos criar uma condição que teste se o IMC é maior ou igual a 18.5, e menor ou igual a 35. Para isso, faremos o seguinte:
+
+if(imc < 18.5) {
+
+    mostra("Você está abaixo do recomendado");
+
+}
+
+if(imc > 35) {
+
+    mostra("Você está acima do recomendado");
+}
+
+if(imc >= 18.5) {
+
+    if(imc <= 35) {
+
+        mostra("Seu IMC está excelente!");
+
+    }
+
+}
+
+Como o número 24 é ao mesmo tempo maior que 18.5 e menor que 35, a mensagem exibida será "Seu IMC está excelente!". Salvaremos e recarregaremos a página. Vamos testar inserindo o nome Flávio, a altura 1.71 e o peso 73. Obteremos:
+
+Flávio, o seu IMC é 24.96494647925858Seu IMC está excelente!
+
+Retornando ao programa, observamos que o document.write() foi utilizado para escrever nome + ", o seu IMC é " + imc:
+
+document.write(nome + ", o seu IMC é " + imc);
+
+if(imc < 18.5) {
+
+    mostra("Você está abaixo do recomendado");
+
+}
+
+if(imc > 35) {
+
+    mostra("Você está acima do recomendado");
+}
+
+if(imc >= 18.5) {
+
+    if(imc <= 35) {
+
+        mostra("Seu IMC está excelente!");
+
+    }
+
+}
+
+</script>
+
+Precisaremos utilizar a função mostra() para podermos ter a quebra de linha:
+
+mostra(nome + ", o seu IMC é " + imc);
+
+if(imc < 18.5) {
+
+    mostra("Você está abaixo do recomendado");
+
+}
+
+if(imc > 35) {
+
+    mostra("Você está acima do recomendado");
+}
+
+if(imc >= 18.5) {
+
+    if(imc <= 35) {
+
+        mostra("Seu IMC está excelente!");
+
+    }
+
+}
+
+</script>
+
+Salvaremos e recarregaremos a página. Inseriremos as mesmas informações que anteriormente. Teremos a seguinte exibição:
+
+Flávio, o seu IMC é 24.96494647925858
+
+Seu IMC está excelente!
+
+Faremos mais um exemplo usando um IMC claramente fora do padrão. Recarregaremos a página e inseriremos as seguintes informações: para o nome, Calopsita, altura 1.61, peso 100. Obteremos o seguinte resultado:
+
+Calopsita, o seu IMC é 38.5787583555032
+
+Você está acima do recomendado
+
+Temos um programa útil, o qual podemos utilizar para calcular o IMC de diversos indivíduos. A forma como estamos fazendo isso está verbosa, ou seja, há bastante informação escrita. Para ajudar, o JavaScript possui um atalho. Queremos testar se o IMC é maior ou igual a 18, e menor ou igual a 35 e, para isso, poderemos escrever da seguinte forma:
+
+if(imc >= 18.5 && imc <= 35) {
+
+    mostra("Seu IMC está excelente!");
+
+}
+
+Assim, o JavaScript primeiro se questionará se o IMC é maior ou igual a 18.5, sendo verdade, ele passará a analisar o && e se questionar se, além disso, também é menor ou igual a 35. Sendo as duas afirmações verdadeiras, o navegador imprimirá a mensagem Seu IMC está excelente!. Atenção, se uma das condições for verdadeira e a outra não, nada será exibido, uma vez que a função mostra() só será executada se as duas condições forem verdadeiras.
+
+Anteriormente, havia um if() dentro de outro:
+
+if(imc >= 18.5) {
+
+    if(imc <= 35) {
+
+        mostra("Seu IMC está excelente!");
+
+    }
+}
+
+Agora não mais. Tiramos o segundo if() do bloco e incluímos as duas condições em uma só linha:
+
+if(imc >= 18.5 && imc <= 35) {
+
+    mostra("Seu IMC está excelente!");
+
+}
+
+Salvaremos e recarregaremos a página. Inseriremos as mesmas informações que anteriormente e veremos que o programa está funcionando:
+
+Flávio, o seu IMC é 24.96494647925858
+
+Seu IMC está excelente!
+
+

@@ -1,0 +1,25 @@
+Transcrição do Video:
+
+Aprendemos a criar funcionalidades que antes não existiam no JavaScript, e também as nossas próprias funções. A primeira delas foi criada para nos poupar de escrevermos document.write("<br>") todas as vezes em que quiséssemos uma quebra de linha.
+
+Toda função criada se inicia com o termo function, definido pelo JavaScript, em seguida temos o nome da função, terminando com parênteses:
+
+function pulaLinha() {
+}
+
+Abrimos e fechamos um bloco utilizando as chaves ({}), já que toda função pode englobar uma ou mais instruções. Não faz sentido termos uma função sem nenhuma instrução. No caso, pulaLinha() contém duas:
+
+function pulaLinha() {
+
+    document.write("<br>");
+    document.write("<br>");
+}
+
+Quando chamarmos o pulaLinha(), será executada a função. Para chamá-la, precisamos utilizar parênteses, da seguinte forma:
+
+pulaLinha();
+
+Caso contrário, o JavaScript ignorará a função. Vimos funções que não recebem parâmetros, como o pulaLinha(), e os que recebem, como mostra(). Este está preparado para receber algo que é passado para o document.write().
+
+Aprendemos também que uma função pode chamar outra, estopim para criarmos programas mais úteis, algo que faremos adiante.
+

@@ -1,0 +1,21 @@
+Sílvia escreveu o seguinte código:
+
+<meta charset="UTF-8">
+<script>
+    var minhaIdade = 20;
+
+    document.write("Eu nasci em " + (2016 - minhaidade));
+</script>
+
+Opinião do instrutor:
+
+O problema encontra-se no nome da variável. Na declaração a variável chama-se minhaIdade. Contudo, quando ela é usada em document.write é escrita de maneira errada, com o "i" minúsculo. A simples diferença fará com que o JavaScript não encontre a variável. Corrigindo:
+
+<meta charset="UTF-8">
+<script>
+    var minhaIdade = 20;
+
+    document.write("Eu nasci em " + (2016 - minhaIdade) );
+</script>
+
+Agora o código funcionará corretamente!

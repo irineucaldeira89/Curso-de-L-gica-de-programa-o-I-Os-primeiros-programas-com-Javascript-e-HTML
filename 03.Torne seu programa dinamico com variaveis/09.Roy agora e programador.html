@@ -1,0 +1,34 @@
+Roy, depois de ter muito contato com a programação, acabou se tornando programador.
+
+O seguinte código o fez refletir bastante:
+
+<meta charset="UTF-8">
+<script>
+
+    var idadeLinda = 12;
+    var idadeGuaraciara = 15;
+    var idadePerola = 13;
+
+    document.write( (idadeLinda + idadeGuaraciara + idadePerola) / 3);
+</script>
+
+Ele viu que poderia evitar o uso dos parênteses na instrução que imprime a média das idades se guardasse antes, em uma variável, a soma das idades.
+
+Altere o programa e aplique a ideia de Roy! Para isso, use a variável totalIdades.
+
+Opinião do instrutor:
+
+Alterando o código de Roy temos:
+
+<meta charset="UTF-8">
+<script>
+
+    var idadeLinda = 12;
+    var idadeGuaraciara = 15;
+    var idadePerola = 13;
+
+    var totalIdades = idadeLinda + idadeGuaraciara + idadePerola;
+    document.write( totalIdades / 3);
+</script>
+
+Por mais que tenhamos acrescentado uma instrução em nosso programa, alterações como essa deixam o código mais legível. Veja, não foi necessário colocar os parênteses, pois já temos o total de idades em uma variável.

@@ -1,0 +1,111 @@
+Temos o seguinte programa:
+
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var idade = parseInt(prompt("Qual é sua idade?"));
+    var temCarteira = prompt("Tem carteira? Responda S ou N");
+
+</script>
+
+Este programa, de acordo com a resposta do usuário, deve exibir a mensagem "Pode dirigir" ou "Não pode dirigir". Lembre-se que é permitido dirigir ao indivíduo com 18 anos ou mais e que também possua carteira de motorista.
+
+Altere o programa para que ele responda com inteligência!
+
+Opinião do instrutor:
+
+Vamos lá, uma solução é criar o seguinte código:
+
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var idade = parseInt(prompt("Qual é sua idade"));
+    var temCarteira = prompt("Tem carteira? Responda S ou N");
+
+    if( idade >= 18 ) {
+        if( temCarteira == "S") {
+            mostra("Pode dirigir");
+        }
+    }
+
+    if(idade < 18) {
+        mostra("Não pode dirigir");
+    }
+
+</script>
+
+Observe que temos no código um if dentro de outro, pois para que alguém possa dirigir a pessoa além de precisar ser maior de idade ainda deve possuir uma carteira de motorista. Porém, ser menor de 18 já anula a necessidade de verificar a existência de carteira, pois ele não pode dirigir, a não ser que a carteira seja falsa, não é mesmo? (risos)
+
+Contudo, podemos deixar nosso código ainda melhor! No lugar de colocarmos um if dentro de outro, podemos usar um && para indicar um "E" dentro do mesmo if:
+
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var idade = parseInt(prompt("Qual é sua idade"));
+    var temCarteira = prompt("Tem carteira? Responda S ou N");
+
+    if( idade >= 18 && temCarteira == "S") {
+        mostra("Pode dirigir");
+    }
+
+    if(idade < 18) {
+        mostra("Não pode dirigir");
+    }
+
+</script>
+
+Podemos melhorar ainda mais o código! Ele pode, por exemplo, só entrar no if se antes as duas condições (ter carteira e ser maior de 18 anos) forem verdadeiras. Nesse caso, só há uma condição oposta a "Poder dirigir" que é "Não dirigir". Portanto, podemos utilizar um else:
+
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var idade = parseInt(prompt("Qual é sua idade"));
+    var temCarteira = prompt("Tem carteira? Responda S ou N");
+
+    if( idade >= 18 && temCarteira == "S") {
+        mostra("Pode dirigir");
+    } else {
+        mostra("Não pode dirigir");
+    }
+</script>
+
+Veja que nosso código ficou mais enxuto e continua com a mesma funcionalidade!
+
+Não se preocupe se sua resposta não foi tão enxuta quanto a minha, se seu programa funcionou, já ganhou 10! É sempre bom ver formas diferentes de se resolver um mesmo problema.
+

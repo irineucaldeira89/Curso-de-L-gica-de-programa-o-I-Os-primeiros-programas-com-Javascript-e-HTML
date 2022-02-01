@@ -1,0 +1,24 @@
+Toda linguagem de programação possui ferramentas que nos auxiliam a descobrir o que há de errado com o código, principalmente no que diz respeito a erros de sintaxe, aquele tipo de erro que ocorre quando deixamos de seguir regras que a linguagem de programação utiliza.
+
+Vejamos o seguinte código escrito por Tio Ben:
+<meta charset="UTF-8">
+<script>
+    alert("Isso");
+    alert("é");
+    alert("um");
+    alert("programa);
+    alert("sim");
+</script>
+
+Apesar de Tio Ben jurar que verificou o código mil vezes, nada de errado é encontrado. Ajude Tio Ben a identificar o local no qual ele cometeu um erro de sintaxe. DICA: experimente criar o programa tio_ben.html e cole nele o código acima. Rode e peça ajuda do depurador (debugger), o melhor amigo do programador na busca de erros.
+
+Opinião do instrutor:
+	O problema esta na linha 6:
+ 	alert("programa);
+
+ 	Tio Ben esqueceu de fechar as aspas do texto e todo texto em JavaScript deve vir entre aspas. Ele poderia ter descoberto rapidamente a linha do erro se tivesse utilizado o depurador (debugger) do navegador e verificado na aba "console" se havia alguma mensagem de erro (mensagens de erro são assinaladas na cor vermelha). Se tivesse recorrido a esse recurso teria encontrado o erro mais cedo:
+ 	tio_ben.html:6 Uncaught SyntaxError: Invalid or unexpected token 
+
+ 	Por mais que tio Ben não saiba inglês, o fato de saber que o problema está na linha seis já o ajudaria a focar sua atenção e muito provavelmente ele descobriria a gafe que cometeu.
+
+	E você, cometerá o mesmo erro do Tio Ben?
